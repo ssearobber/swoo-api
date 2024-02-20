@@ -197,21 +197,21 @@ export class BuymaOverwrite {
             await page.type('.bmm-c-custom-text--unit-left input.bmm-c-text-field--half-size-char',shopifyObject.variants[0].price);
             
             //(商品画像)
-            try {
-                imagePathArray = await readdir(join(__dirname, `../../../tempSave/${shopifyObject.title}`));
-            } catch (error) {
-                console.error("Error reading directory: ", error);
-            }
-            imagePathArray = imagePathArray.map((v) => {
-                return join(__dirname, `../../../tempSave/${shopifyObject.title}/${v}`);
-            });
-            const[fileChooser] = await Promise.all([
-                page.waitForFileChooser(),
-                page.click('.bmm-c-img-upload .bmm-c-img-upload__dropzone span'),
-            ])
-            await fileChooser.accept(imagePathArray);
-            // await page.waitForTimeout(20000);
-            await new Promise(r => setTimeout(r, 30000));
+            // try {
+            //     imagePathArray = await readdir(join(__dirname, `../../../tempSave/${shopifyObject.title}`));
+            // } catch (error) {
+            //     console.error("Error reading directory: ", error);
+            // }
+            // imagePathArray = imagePathArray.map((v) => {
+            //     return join(__dirname, `../../../tempSave/${shopifyObject.title}/${v}`);
+            // });
+            // const[fileChooser] = await Promise.all([
+            //     page.waitForFileChooser(),
+            //     page.click('.bmm-c-img-upload .bmm-c-img-upload__dropzone span'),
+            // ])
+            // await fileChooser.accept(imagePathArray);
+            // // await page.waitForTimeout(20000);
+            // await new Promise(r => setTimeout(r, 30000));
 
             //上書きボタンをクリックする
             await page.waitForSelector('.sell-btnbar button:nth-child(1)');

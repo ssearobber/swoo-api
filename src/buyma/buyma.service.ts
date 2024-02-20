@@ -20,7 +20,7 @@ export class BuymaService {
         try {
             for (const shopifyObject of shopifyDataArray) {
                 // 이미지 다운로드
-                await this.shopifyImageDownload.downloadImages(shopifyObject.title, shopifyObject.images.map(imageObject => imageObject.src));
+                // await this.shopifyImageDownload.downloadImages(shopifyObject.title, shopifyObject.images.map(imageObject => imageObject.src));
                 // Buyma에 제품 생성
                 await this.buymaOverwrite.createProduct(shopifyRequstBody.buymaID, shopifyRequstBody.buymaPW, shopifyObject);
                 // 성공적으로 처리된 제품의 정보를 배열에 추가
@@ -29,7 +29,7 @@ export class BuymaService {
                     status: 'Processed successfully'
                 });
                 // 이미지 삭제
-                await this.shopifyImageDownload.deleteAllImages(shopifyObject.title);
+                // await this.shopifyImageDownload.deleteAllImages(shopifyObject.title);
             }
 
             // 모든 제품이 성공적으로 처리되었을 때의 반환 값
