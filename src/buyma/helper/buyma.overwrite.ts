@@ -229,6 +229,7 @@ export class BuymaOverwrite {
 
             await page.close();
             await browser.close();
+            console.log('상품 등록이 끝났습니다.')
         } catch(e) {
             // 메모리 누수 방지를 위해 Puppeteer의 브라우저 및 페이지 인스턴스를 닫음
             if (page) await page.close();
